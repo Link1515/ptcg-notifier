@@ -1,7 +1,7 @@
 import 'dotenv/config';
-import { videoNotExists, storeVideo } from './db.js';
-import { fetchRSS } from './rss.js';
-import { notify } from './notify.js';
+import { videoNotExists, storeVideo } from './utils/db.js';
+import { fetchRSS } from './utils/rss.js';
+import { notify } from './utils/notify.js';
 
 const data = await fetchRSS();
 const targetVideo = getTargetVideo(data);
