@@ -1,7 +1,7 @@
-import 'dotenv/config';
 import { videoNotExists, storeVideo } from './utils/db.js';
 import { fetchRSS } from './utils/rss.js';
 import { notify } from './utils/notify.js';
+import { VIDEO_KEYWORD } from './constant.js';
 
 const data = await fetchRSS();
 const targetVideo = getTargetVideo(data);
@@ -18,7 +18,5 @@ if (videoNotExists(targetVideo.id)) {
 }
 
 function getTargetVideo(data) {
-  return data.feed.entry.find((video) =>
-    video.title.includes(process.env.TARGET_VIDEO_KEYWORD),
-  );
+  return data.feed.entry.find((video) => video.title.includes(VIDEO_KEYWORD));
 }

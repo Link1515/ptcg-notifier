@@ -19,7 +19,7 @@ export function notify(message, link) {
     wait: true,
   });
 
-  notifier.on('click', function (notifierObject, options, event) {
+  notifier.on('click', function () {
     open(link);
   });
 }

@@ -1,10 +1,9 @@
 import { XMLParser } from 'fast-xml-parser';
-
-const YT_FEEDS_URL = 'https://www.youtube.com/feeds/videos.xml?channel_id=';
+import { YT_FEEDS_URL, CHANNEL_ID } from '../constant.js';
 
 export async function fetchRSS() {
-  const data = await fetch(YT_FEEDS_URL + process.env.CHANNEL_ID).then(
-    (response) => response.text(),
+  const data = await fetch(YT_FEEDS_URL + CHANNEL_ID).then((response) =>
+    response.text(),
   );
   const parser = new XMLParser({
     ignoreAttributes: false,
