@@ -1,21 +1,20 @@
 import 'dotenv/config';
 import { videoNotExists, storeVideo } from './db.js';
 import { fetchRSS } from './rss.js';
+import { notify } from './notify.js';
 
 const data = await fetchRSS();
 const targetVideo = getTargetVideo(data);
 if (!targetVideo) {
-  console.log('No target video found');
+  // No target video found
   process.exit();
 }
 
-console.log('Found target video: ', targetVideo.title);
-
 if (videoNotExists(targetVideo.id)) {
-  console.log('==> Store video to db');
+  // Store video to db
   storeVideo(targetVideo.id, targetVideo.title);
-} else {
-  console.log('==> Video already exists');
+  // Notify
+  notify(targetVideo.title, targetVideo.link['@_href']);
 }
 
 function getTargetVideo(data) {

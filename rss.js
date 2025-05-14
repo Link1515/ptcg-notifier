@@ -6,7 +6,10 @@ export async function fetchRSS() {
   const data = await fetch(YT_FEEDS_URL + process.env.CHANNEL_ID).then(
     (response) => response.text(),
   );
-  const parser = new XMLParser();
+  const parser = new XMLParser({
+    ignoreAttributes: false,
+  });
   const json = parser.parse(data);
+
   return json;
 }
