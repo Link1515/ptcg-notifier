@@ -1,6 +1,6 @@
 import { videoNotExists, storeVideo } from './utils/db.js';
 import { fetchRSS } from './utils/rss.js';
-import { notify } from './utils/notify.js';
+import { desktopNotify } from './utils/desktopNotify.js';
 import { VIDEO_KEYWORD } from './constant.js';
 
 const data = await fetchRSS();
@@ -13,8 +13,8 @@ if (!targetVideo) {
 if (videoNotExists(targetVideo.id)) {
   // Store video to db
   storeVideo(targetVideo.id, targetVideo.title);
-  // Notify
-  notify(targetVideo.title, targetVideo.link['@_href']);
+  // desktop notify
+  desktopNotify(targetVideo.title, targetVideo.link['@_href']);
 }
 
 function getTargetVideo(data) {
