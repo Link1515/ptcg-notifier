@@ -5,13 +5,15 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "crawl": "node index.js",
+    "test": "cross-env DISABLE_WEBHOOK=true node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "better-sqlite3": "^11.10.0",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
     "fast-xml-parser": "^5.2.3",
     "node-notifier": "^10.0.1",

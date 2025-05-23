@@ -1,4 +1,8 @@
 export function webhookNotify(message, link) {
+  if (process.env.DISABLE_WEBHOOK) {
+    return;
+  }
+
   const body = {
     msgtype: 'text',
     text: {
