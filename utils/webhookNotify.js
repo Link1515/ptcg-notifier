@@ -6,7 +6,7 @@ export function webhookNotify(message, link) {
   const body = {
     msgtype: 'text',
     text: {
-      content: `📢新訊息\n\n${message}\n${link}`
+      content: `🔔 新消息\n\n${message}\n${link}`
     }
   };
 
