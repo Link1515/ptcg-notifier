@@ -12,7 +12,7 @@ const notifier = new WindowsToaster({
 
 export function desktopNotify(message, link) {
   notifier.notify({
-    title: '發現新訊息!',
+    title: '發現新消息!',
     message,
     icon: path.join(__dirname, 'images', 'pokeball.png'),
     sound: false,
